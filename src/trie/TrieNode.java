@@ -80,7 +80,7 @@ public class TrieNode {
 
 	public static void main(String args[]) {
 		TrieNode root = new TrieNode();
-//		insert(root, "car");
+		insert(root, "car");
 		insert(root, "care");
 		insert(root, "career");
 		insert(root, "bat");
@@ -91,14 +91,16 @@ public class TrieNode {
 		System.out.println("batsman:" + search(root, "batsman"));
 		System.out.println("append:" + search(root, "append"));
 		System.out.println("appen:" + search(root, "appen"));
-		System.out.println("delete career:" + delete(root, 0,"career"));
-		// delete(root,"care");
 		System.out.println("career:" + search(root, "career"));
 		System.out.println("care:" + search(root, "care"));
 		System.out.println("cam:" + search(root, "cam"));
+		System.out.println("before deletion, no of words passed through root:" + root.count);
+		System.out.println("delete career:" + delete(root, 0,"career"));
 		System.out.println("delete cam:" + delete(root, 0,"cam"));
 		System.out.println("delete car:" + delete(root, 0,"car"));
 		System.out.println("care:" + search(root, "care"));
+		System.out.println("car:" + search(root, "car"));
+		System.out.println("after deletion, no of words passed through root:" + root.count);
 
 	}
 
