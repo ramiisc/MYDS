@@ -65,9 +65,7 @@ public class TrieNode {
 					return true;
 				}
 			}
-			return false;
 		}
-
 		return false;
 	}
 
