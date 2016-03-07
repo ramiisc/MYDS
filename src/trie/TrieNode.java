@@ -1,6 +1,8 @@
 package trie;
 
-public class TrieNode {
+import java.io.Serializable;
+
+public class TrieNode implements Serializable {
 	public static int ALPHABETSIZE = 27;
 	public int count;
 	public boolean isEnd;
