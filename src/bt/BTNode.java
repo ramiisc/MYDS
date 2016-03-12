@@ -143,7 +143,7 @@ public class BTNode {
 
  	}
 	
-	public static void main(String args[]) {
+	public static BTNode createtree() {
 		BTNode root = new BTNode(1);
 		root.left =  new BTNode(2);
 		root.right =  new BTNode(3);
@@ -151,6 +151,32 @@ public class BTNode {
 		root.left.right =  new BTNode(5);
 		root.right.left =  new BTNode(6);
 		root.right.right =  new BTNode(7);
+		return root;
+	}
+	
+	public static BTNode createtreeNonBalanced() {
+		BTNode root = new BTNode(1);
+		root.left =  new BTNode(2);
+		root.right =  new BTNode(3);
+		root.left.left =  new BTNode(4);
+		root.left.right =  new BTNode(5);
+		root.right.left =  new BTNode(6);
+		root.right.right =  new BTNode(7);
+		root.right.right.right =  new BTNode(8);
+		root.right.right.right.right =  new BTNode(9);
+		return root;
+	}
+	
+	public static int height(BTNode root) {
+		if(root == null) return 0;
+		
+	int leftHeight =  height(root.left);
+	int rightHeight =  height(root.right);
+	return Math.max(leftHeight, rightHeight)+1;
+	}
+	
+	public static void main(String args[]) {
+		BTNode root =  BTNode.createtree();
 		System.out.println("preorder:");
 		preOrderRec(root);
 		System.out.println();
