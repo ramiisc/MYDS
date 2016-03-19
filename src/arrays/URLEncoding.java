@@ -6,7 +6,6 @@ public class URLEncoding {
 
 		int count = 0;
 		int k = 0;
-		char temp;
 		char[] a;
 		for (int i = 0; i < s.length() - 1; i++) {
 			if (s.charAt(i) == ' ' && s.charAt(i + 1) != ' ') {

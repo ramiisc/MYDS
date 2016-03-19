@@ -6,9 +6,7 @@ public class PermutationCheck {
 		if(s1.length() != s2.length())
 			return false;
 		boolean[] exist = new boolean[256];
-		int index;
 		for(int i = 0; i < s1.length(); i++) {
-			index = s1.charAt(i);
 			exist[s1.charAt(i)] = true;
 		}
 		
