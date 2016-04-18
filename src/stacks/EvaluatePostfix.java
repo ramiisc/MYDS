@@ -19,29 +19,37 @@ public class EvaluatePostfix {
 			} else {
 				switch (c) {
 				case '*':
-					op1 = Integer.valueOf(stack.pop());
-					op2 = Integer.valueOf(stack.pop());
+//					op1 = Integer.valueOf(stack.pop());
+//					op2 = Integer.valueOf(stack.pop());
+					op1 = stack.pop();
+					op2 = stack.pop();
 					result = op2 * op1;
 					stack.push(result);  
 					break;
 					
 				case '+':
-					op1 = Integer.valueOf(stack.pop());
-					op2 = Integer.valueOf(stack.pop());
+//					op1 = Integer.valueOf(stack.pop());
+//					op2 = Integer.valueOf(stack.pop());
+					op1 = stack.pop();
+					op2 = stack.pop();
 					result = op2 + op1;
 					stack.push(result);  
 					break;
 					
 				case '-':
-					op1 = Integer.valueOf(stack.pop());
-					op2 = Integer.valueOf(stack.pop());
+//					op1 = Integer.valueOf(stack.pop());
+//					op2 = Integer.valueOf(stack.pop());
+					op1 = stack.pop();
+					op2 = stack.pop();
 					result = op2 - op1;
 					stack.push(result);   
 					break;
 					
 				case '/':
-					op1 = Integer.valueOf(stack.pop());
-					op2 = Integer.valueOf(stack.pop());
+//					op1 = Integer.valueOf(stack.pop());
+//					op2 = Integer.valueOf(stack.pop());
+					op1 = stack.pop();
+					op2 = stack.pop();
 					result = op2 / op1;
 					stack.push(result);  
 					break;

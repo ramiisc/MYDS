@@ -56,26 +56,49 @@ public class BSTNode {
 
 		return root;
 	}
+
+	public static BSTNode insert1(BSTNode root, int key) {
+		if (root == null) {
+			return new BSTNode(key);
+		} else if (key <= root.key) {
+			root.left = insert1(root.left, key);
+		} else if (key > root.key) {
+
+			root.right = insert(root.right, key);
+		}
+
+		return root;
+	}
+
 	public static void levelOrder(BSTNode root) {
-		if(root == null) {
+		if (root == null) {
 			System.out.println(root);
 			return;
 		}
 		Queue<BSTNode> queue = new LinkedList<BSTNode>();
 		queue.add(root);
-		while(!queue.isEmpty()) {
+		queue.add(null);
+		while (!queue.isEmpty()) {
 			root = queue.remove();
-			System.out.println(root.key);
-			if(root.left != null) {
-				queue.add(root.left);
-			}
-			if(root.right != null) {
-				queue.add(root.right);
+			if (root == null) {
+				System.out.println();
+				if (queue.isEmpty())
+					break;
+				queue.add(null);
+
+			} else {
+				System.out.print(root.key + " ");
+				if (root.left != null) {
+					queue.add(root.left);
+				}
+				if (root.right != null) {
+					queue.add(root.right);
+				}
 			}
 
 		}
 
- 	}
+	}
 
 	public static BSTNode search1(BSTNode root, int key) {
 		if (root == null || root.key == key)
@@ -85,43 +108,51 @@ public class BSTNode {
 		}
 		return search1(root.right, key);
 	}
-	
+
 	public static BSTNode search2(BSTNode root, int key) {
 		if (root == null)
 			return root;
-		if(root.key == key) {
+		if (root.key == key) {
 			return root;
 		}
 		if (key <= root.key) {
 			return search2(root.left, key);
 		}
-		
-			return search2(root.right, key);
+
+		return search2(root.right, key);
 	}
 
 	public static void main(String args[]) {
 		BSTNode root = null;
-		root = insert(root, 5);
-		System.out.println(root.key);
-		insert(root, 3);
-		insert(root, 2);
-		insert(root, 4);
-		insert(root, 7);
-		insert(root, 6);
-		insert(root, 8);
-		System.out.println(root.key);
+//		root = insert(root, 5);
+//		// System.out.println(root.key);
+//		insert(root, 3);
+//		insert(root, 2);
+//		insert(root, 4);
+//		insert(root, 7);
+//		insert(root, 6);
+//		insert(root, 8);
+		// System.out.println(root.key);
+		
+		root = insert1(root, 5);
+		insert1(root, 3);
+		insert1(root, 2);
+		insert1(root, 4);
+		insert1(root, 7);
+		insert1(root, 6);
+		insert1(root, 8);
 		levelOrder(root);
 		BSTNode node;
 		int key = 4;
 		node = search1(root, key);
-		if(node == null) {
+		if (node == null) {
 			System.out.println("not found");
 		} else {
 			System.out.println("found : " + node.key);
 		}
-		
+
 		node = search2(root, key);
-		if(node == null) {
+		if (node == null) {
 			System.out.println("not found");
 		} else {
 			System.out.println("found : " + node.key);
